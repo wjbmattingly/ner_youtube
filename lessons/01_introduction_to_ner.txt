@@ -1,0 +1,41 @@
+#   NAMED ENTITY RECOGNITION SERIES   #
+#             Lesson 01               #
+#        Introduction to NER          #
+#               with                  #
+#        Dr. W.J.B. Mattingly         #
+
+Series Outline:
+01 => Introduction to NER
+02 => Gazetteer and NER in Python (Rules-Based NER)
+03 => Introduction to Machine Learning NER
+04 => using spaCy's Named Entity Recognition
+05 => What's under the hood of spaCy?
+06 => Identifying the weaknesses in spaCy's NER
+07 => Introduction to Word Vectors
+08 => Generating Custom Word Vectors in Gensim
+09 => Importing Custom Word Vectors from Gensim into spaCy
+10 => Training spaCy's NER on new domain-specific texts
+11 => Creating New Entity Labels in spaCy
+12 => Generating New Training Data Quickly
+13 => Training and Deploying a Domain NER Model
+
+
+
+
+
+
+
+
+
+Key Terminology:
+    Natural Language Processing ==> NLP
+    Named Entity Recognition    ==> NER
+    Information Extraction      ==> IE
+    Gazetteer (Rules-Based Method)
+    Linguistic Ambiguity
+    Domain Adaptation
+    Generalize
+
+Key Libraries:
+    NLP           ==> spaCy & NLTK
+    Word Vectors  ==> Gensim
