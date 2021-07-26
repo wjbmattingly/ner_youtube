@@ -77,7 +77,7 @@ def generate_rules(patterns):
     nlp = English()
     ruler = EntityRuler(nlp)
     ruler.add_patterns(patterns)
-    nlp.add_pipe(ruler)
+    nlp.add_pipe("entity_ruler")
     nlp.to_disk("hp_ner")
 
 def test_model(model, text):
