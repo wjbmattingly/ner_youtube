@@ -75,9 +75,10 @@ def create_training_data(file, type):
 
 def generate_rules(patterns):
     nlp = English()
+    source_nlp = spacy.load("en_core_web_sm")
+    nlp.add_pipe("ner", source=source_nlp)
     ruler = EntityRuler(nlp)
     ruler.add_patterns(patterns)
-    nlp.add_pipe(ruler)
     nlp.to_disk("hp_ner")
 
 def test_model(model, text):
