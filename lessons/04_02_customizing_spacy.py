@@ -38,7 +38,6 @@ with open ("data/hp.txt", "r")as f:
         chapter_num, chapter_title = chapter.split("\n\n")[0:2]
         chapter_num = chapter_num.strip()
         segments = chapter.split("\n\n")[2:]
-        hits = []
         for segment in segments:
             segment = segment.strip()
             segment = segment.replace("\n", " ")
