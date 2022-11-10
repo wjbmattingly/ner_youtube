@@ -3,41 +3,54 @@
 #          Rules-Based NER            #
 #               with                  #
 #        Dr. W.J.B. Mattingly         #
+
+# Demonstrates the weakness of rule-based NER
+# Requires programmer to write for whole bunch of code to do simple task
+
 import json
 
-with open ("data/hp.txt", "r", encoding="utf-8") as f:
-    text = f.read().split("\n\n")
-    # print (text)
+with open("data/hp.txt", "r", encoding="utf-8") as f: #load text
+    text = f.read().split("\n\n") #break up text by line break
+    #print(text)
 
 character_names = []
-with open("data/hp_characters.json", "r", encoding="utf-8") as f:
-    characters = json.load(f)
+
+with open("data/hp_characters.json", "r", encoding="UTF-8") as f: 
+    characters = json.load(f) #load characters
+    
+    #iterate across all characters
     for character in characters:
-        names  = character.split()
+        names = character.split()
+
         for name in names:
             if "and" != name and "the" != name and "The" != name:
-                name = name.replace(",", "").strip()
+                xname = name.replace(",", "").strip()
                 character_names.append(name)
+        #print(character_names)
 
+#break up text segment by segment
 for segment in text:
-    # print (segment)
-    segment = segment.strip()
-    segment = segment.replace("\n", " ")
-    print (segment)
+    segment = segment.strip() #remove leading/trailing spaces in text
+    segment = segment.replace("\n", " ") #remove line breaks
+    print(segment)
 
+    #get rid of punctuation marks
     punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    
     for ele in segment:
         if ele in punc:
             segment = segment.replace(ele, "")
-    # print (segment)
-    words = segment.split()
-    # print (words)
-    i = 0
-    for word in words:
-        if word in character_names:
-            if words[i-1][0].isupper():
-                print (f"Found Character(s): {words[i-1]} {word}")
-            else:
-                print (f"Found Character(s): {word}")
+    #print(segment)
 
-        i=i+1
+    # need sentences split up into individual words
+    words = segment.split() #split words based on white spaces
+    #print(words)
+    i = 0
+    for word in words: #check if word is a character
+        if word in character_names:
+            #print(word)
+            if words[i-1][0].isupper(): #check if capitalized (ex. "The Grinch")
+                print(f"Found Character(s): {words[i-1]}{word}")
+            else:
+                print(f"Found Character(s): {word}")
+        i = i+1
