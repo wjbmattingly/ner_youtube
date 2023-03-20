@@ -79,6 +79,18 @@ def generate_rules(patterns):
     ruler.add_patterns(patterns)
     nlp.add_pipe(ruler)
     nlp.to_disk("hp_ner")
+    
+''' For spacy v3 
+def generate_rules(patterns):
+    nlp = English()
+    ruler = nlp.add_pipe("entity_ruler")
+    ruler.add_patterns(patterns)
+    nlp.to_disk("hp_ner")
+    
+patterns=create_training_data('hp_character.json','PERSON')
+generate_rules(patterns)
+
+'''
 
 def test_model(model, text):
     doc = nlp(text)
